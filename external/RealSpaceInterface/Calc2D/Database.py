@@ -14,7 +14,7 @@ class Database:
         self.db_path = os.path.join(directory, db_file)
         if not os.path.exists(self.db_path):
             logging.info("No database found; Creating one at {}.".format(self.db_path))
-            with open(self.db_path, "w") as f:
+            with open(self.db_path, "wb") as f:
                 pickle.dump(dict(), f)
 
         self.db = self.__read_database()
@@ -24,12 +24,12 @@ class Database:
             return pickle.load(f)
 
     def __write_database(self):
-        with open(self.db_path, "w") as f:
+        with open(self.db_path, "wb") as f:
             pickle.dump(self.db, f)
 
     def __create_file(self, data):
         filename = str(uuid.uuid4())
-        with open(os.path.join(self.directory, filename), "w") as f:
+        with open(os.path.join(self.directory, filename), "wb") as f:
             pickle.dump(data, f)
         return filename
 
