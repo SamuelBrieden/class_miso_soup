@@ -40,7 +40,7 @@ def get_colormaps(path=config.COLORMAP_PATH):
     cmap_directories = sorted(
         os.listdir(os.path.join("static", path)),
         key=lambda d: order[d]
-        )
+    )
     for directory in cmap_directories:
         categories.append(directory)
         maps_for_category = []
