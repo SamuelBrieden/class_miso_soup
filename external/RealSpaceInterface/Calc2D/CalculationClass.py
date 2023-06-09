@@ -71,7 +71,7 @@ class Calculation(object):
         Valuenew = dict()
         FValue_abs = np.abs(self.FValue)
         _min, _max = FValue_abs.min(), FValue_abs.max()
-        dimensions = (self.endshape[0] / 2, self.endshape[1])
+        dimensions = (int(self.endshape[0] / 2), int(self.endshape[1]))
         for quantity, FT in FValuenew.items():
             FT_abs = np.abs(FT)
             FT_normalized = cv2.resize(FT_abs, dimensions).ravel()
