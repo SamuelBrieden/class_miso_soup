@@ -20,6 +20,23 @@ import config
 
 pool = ThreadPoolExecutor(max_workers=config.MAX_THREADPOOL_WORKERS)
 
+class JSONEncoder(json.JSONEncoder): 
+    def default(self, obj): 
+        if isinstance(obj, np.integer): 
+            return int(obj) 
+        elif isinstance(obj, np.floating): 
+            return float(obj) 
+        elif isinstance(obj, np.ndarray): 
+            return obj.tolist() 
+        else: 
+            return super(JSONEncoder, self).default(obj) 
+
+  
+data = [np.int64(1), np.int64(2), np.int64(3)] 
+json.dumps(data, cls=JSONEncoder) 
+
+ 
+
 def generate_redshifts(redshift_config):
     logging.info(redshift_config)
     arrs = []
@@ -120,7 +137,7 @@ class DataConnection(tornado.websocket.WebSocketHandler):
             logging.info("Submitting calculation to ThreadPoolExecutor")
             messages = yield pool.submit(self.set_cosmological_parameters, cosmological_parameters)
             for message in messages:
-                self.write_message(json.dumps(message))
+                self.write_message(json.dumps(message, cls=JSONEncoder)) 
         elif param_type == "Start":
             logging.info("Starting propagation...")
             try:
