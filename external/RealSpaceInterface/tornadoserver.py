@@ -37,10 +37,10 @@ def get_colormaps(path=config.COLORMAP_PATH):
     categories = []
     maps = []
     order = {'Default': 1, 'Uniform': 2, 'Diverging': 3, 'Miscellaneous': 4}
-    cmap_directories = list(sorted(
+    cmap_directories = sorted(
         os.listdir(os.path.join("static", path)),
         key=lambda d: order[d]
-        ))
+        )
     for directory in cmap_directories:
         categories.append(directory)
         maps_for_category = []
@@ -48,7 +48,7 @@ def get_colormaps(path=config.COLORMAP_PATH):
             maps_for_category.append({
                 'label': cmap[:cmap.rfind(".")],
                 'src': os.path.join(os.path.join(config.COLORMAP_PATH, directory, cmap)),
-                })
+            })
         maps.append(maps_for_category)
     return categories, maps
 
@@ -66,7 +66,7 @@ class DataConnection(tornado.websocket.WebSocketHandler):
         self.write_message(json.dumps({
             "type": "krange",
             "k": self.calc.krange.tolist()
-            }))
+        }))
 
     def on_close(self):
         logging.info("Connection was closed")
@@ -110,8 +110,7 @@ class DataConnection(tornado.websocket.WebSocketHandler):
                 }))
 
             logging.info("Submitting initial state generation to ThreadPoolExecutor")
-            yield pool.submit(self.set_initial_condition, sigma, initialDataType,
-                              SIlimit, SI_ns, A_s)
+            yield pool.submit(self.set_initial_condition, sigma, initialDataType, SIlimit, SI_ns, A_s)
             self.send_initial_state()
             self.write_message(json.dumps({'type': 'success', 'sort': 'Initial'}))
 
@@ -143,8 +142,8 @@ class DataConnection(tornado.websocket.WebSocketHandler):
         self.write_message(json.dumps({'type': 'extrema', 'extrema': extrema}))
         progress = float(redindex) / len(self.calc.redshift)
 
-        real = {quantity: base64.b64encode(data.astype(np.float32)) for quantity, data in Valuenew.iteritems()}
-        transfer = {quantity: base64.b64encode(data.astype(np.float32)) for quantity, data in TransferData.iteritems()}
+        real = {quantity: base64.b64encode(data.astype(np.float32)).decode('utf-8') for quantity, data in Valuenew.items()}
+        transfer = {quantity: base64.b64encode(data.astype(np.float32)).decode('utf-8') for quantity, data in TransferData.items()}
         self.write_message(
             json.dumps({
                 'type': 'data',
@@ -162,15 +161,15 @@ class DataConnection(tornado.websocket.WebSocketHandler):
         self.write_message({
             "type": "resolution",
             "value": self.calc.resolution
-            })
+        })
         extremastring = json.dumps({'type': 'extrema', 'extrema': extrema})
         datastring = json.dumps({
             'type': 'data',
-            'real': base64.b64encode(Value.astype(np.float32)),
+            'real': base64.b64encode(Value.astype(np.float32)).decode('utf-8'),
             'fourier': [],
-            'transfer': base64.b64encode(TransferData.astype(np.float32)),
+            'transfer': base64.b64encode(TransferData.astype(np.float32)).decode('utf-8'),
             'k': krange.tolist()
-            })
+        })
         self.write_message(extremastring)
         self.write_message(datastring)
 
@@ -183,7 +182,7 @@ class DataConnection(tornado.websocket.WebSocketHandler):
                 SIlimit=SIlimit,
                 SI_ns=SI_ns,
                 A=A_s
-                )
+            )
         except Exception as e:
             logging.exception(e)
             self.send_exception(e)
@@ -203,12 +202,12 @@ class DataConnection(tornado.websocket.WebSocketHandler):
                 'type': 'Cl',
                 'l': self.calc.tCl.l.tolist(),
                 'tCl': self.calc.tCl.tCl.tolist()
-                })
+            })
             messages.append({
                 'type': 'mPk',
                 'kh': self.calc.mPk.kh.tolist(),
                 'Pkh': self.calc.mPk.Pkh.tolist()
-                })
+            })
 
             z_of_decoupling = self.calc.z_dec
             frame_of_decoupling = np.argmin(np.abs(z_of_decoupling - self.calc.redshift))
@@ -241,7 +240,7 @@ def main():
     PORT = config.PORT if len(sys.argv) == 1 else int(sys.argv[1])
     application.listen(PORT)
     logging.info("Application launched on http://localhost:{}".format(PORT))
-    IOLoop.instance().current().start()
+    IOLoop.current().start()
 
 
 if __name__ == '__main__':
