@@ -1,3 +1,27 @@
+The universe in a soup plate
+==============================================
+
+This repository contains the standard public CLASS code, but with the following addition:
+The code within external/RealSpaceInterface originally written by Georgios Samara and Max Beutelspacher
+has been extended by Sophia Schubert. The extension consists of an animation of a Miso soup, in which waves 
+originating from a Gaussian or scale-invariant random distribution of primordial Tofus 
+propagate depending on the parameters of the soup. The user can play with the amount of Miso paste,
+broth, and spring onions, which affect the viscosity of the soup. The waves remain frozen, once the 
+Miso paste settles, such that the soup becomes transparent (in analogy to the epoch of recombination
+in the real universe.
+
+The code does not require any additional packages beyond the ones of the original RealSpaceInterface, 
+which are documented in 
+
+external/RealSpaceInterface/requirements.txt
+
+A guideline of the necessary changes to make RealSpaceInterface run with python3 (already implemented in
+this version) are documented by Sophia in
+
+external/RealSpaceInterface/ReadMe.txt
+
+Below the original README of the CLASS code:
+
 CLASS: Cosmic Linear Anisotropy Solving System  {#mainpage}
 ==============================================
 
