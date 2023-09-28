@@ -98,7 +98,7 @@ class Calculation(object):
         return Value.ravel(), cv2.resize(
             (np.abs(self.FValue) - np.abs(self.FValue).min()) /
             (np.abs(self.FValue).max() - np.abs(self.FValue).min()),
-            (self.endshape[0] / 2, self.endshape[1])).ravel(), (minimum,
+            (int(self.endshape[0] / 2), int(self.endshape[1]))).ravel(), (minimum,
                                                                 maximum)
 
     def getTransferData(self, redshiftindex):

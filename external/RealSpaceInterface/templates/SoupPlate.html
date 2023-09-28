@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <meta http-equiv="x-ua-compatible" content="ie=edge">
+ <title>Soupplate</title>
+ <!-- Font Awesome -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ <!-- Bootstrap core CSS -->
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+ <!-- Material Design Bootstrap -->
+ <link href="css/mdb.min.css" rel="stylesheet">
+ <!-- Your custom styles (optional) -->
+ <link href="css/style.css" rel="stylesheet">
+ <link rel="stylesheet" href="{{ static_url("css/timeline.css") }}" />
+
+ <script src="{{ static_url("threejs/addons/loaders/GLTFLoader.js") }}"></script>
+
+<script src=“https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js”></script>
+
+ <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+ <script src='../three.js'></script>
+
+ <!-- Javascript file controlling soup animation-->
+<script src="{{ static_url('js/soupplate.js') }}"></script>
+
+</head>
+
+<body>
+      <!-- Modal containing soup animation -->
+      <div id="SoupModal" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title">Soup Animation</h5>
+                  </div>
+                  <div class="modal-body" id="soupbody">
+                    <div class="twod">
+                      <!-- contains gui used to control animation -->
+                      <div id="soupgui">
+                      </div>
+                    </div>
+                    <!-- Canvas that displays soup animation -->
+                    <div id="soupcanvas">
+                    </div>
+                  </div>
+                  <!-- Close button -->
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- SCRIPTS -->
+       <!-- JQuery -->
+       <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+       <!-- Bootstrap tooltips -->
+       <script type="text/javascript" src="js/popper.min.js"></script>
+       <!-- Bootstrap core JavaScript -->
+       <script type="text/javascript" src="js/bootstrap.min.js"></script>
+       <!-- MDB core JavaScript -->
+       <script type="text/javascript" src="js/mdb.min.js"></script>
+
+</body>
+</html>

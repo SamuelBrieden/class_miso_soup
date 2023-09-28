@@ -20,7 +20,7 @@ class Database:
         self.db = self.__read_database()
 
     def __read_database(self):
-        with open(self.db_path) as f:
+        with open(self.db_path, "rb") as f:
             return pickle.load(f)
 
     def __write_database(self):
@@ -40,7 +40,7 @@ class Database:
         frozen_key = self.__get_frozen_key(key)
         if frozen_key in self.db:
             filename = self.db[frozen_key]
-            with open(os.path.join(self.directory, filename)) as f:
+            with open(os.path.join(self.directory, filename), "rb") as f:
                 return pickle.load(f)
         else:
             raise KeyError("No data for key: {}".format(key))

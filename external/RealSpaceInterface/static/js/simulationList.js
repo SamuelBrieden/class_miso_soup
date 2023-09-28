@@ -106,6 +106,7 @@ function SimuTable(deleteCallback, activateCallback, deactivateCallback,
  * Reads table column headings from {@link COSMOLOGICAL_PARAMETER_LIST}.
  *
  */
+
 SimuTable.prototype.createHeader = function() {
     var headRow = document.createElement("tr");
 

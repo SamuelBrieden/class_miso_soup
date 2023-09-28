@@ -190,6 +190,11 @@ CosmoParams.prototype.loadParameters = function(parameters) {
  * @param {module:RSI~initialConditionSetCallback} setInitialConditions
  * @param {module:RSI~cosmologicalParametersSetCallback} setCosmologicalParams
  */
+ 
+ 
+ /*
+ This creates the menu on the right. Could change ParamSet to include button for soup view.
+ */
 function ParameterGui(setInitialConditions, setCosmologicalParams) {
     this.gui = new dat.GUI({ width: 300 });
     this.gui.domElement.id = "datgui";
@@ -374,6 +379,9 @@ ParameterGui.prototype.buildControlFolder = function() {
     .onChange(function (value) {
         scene.background = new THREE.Color(value);
     });
+    
+    //add first button for soup view here
+    //this.gui.add(this.config, "soupview"). name("Add soup illustration");
 };
 
 /**

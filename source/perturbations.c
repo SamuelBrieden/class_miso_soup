@@ -876,7 +876,7 @@ int perturbations_init(
              ppt->error_message,
              ppt->error_message);
 
-
+/*
   if (ppt->z_max_pk > pth->z_rec) {
 
     class_test(ppt->has_cmb == _TRUE_,
@@ -891,7 +891,7 @@ int perturbations_init(
                ppt->z_max_pk,
                pth->z_rec);
 
-  }
+  }*/
 
 
 

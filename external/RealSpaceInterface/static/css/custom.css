@@ -135,6 +135,7 @@ td.color-circle-container {
 
 .visible-checkbox {
     vertical-align: middle;
+    color: red;
 }
 
 /* .cmap-preview, .cmap-preview-button { */
@@ -186,4 +187,96 @@ td.color-circle-container {
 
 .modal-lg {
     max-width: 900px;
+}
+
+#SoupModal {
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: lightgrey; /*sets background colour, lightblue / black*/
+}
+
+/*buttons soup animation */
+#twodbutton {
+  background-color: lightblue;
+  border-radius: 4px;
+  padding: 3px 3px 3px 3px;
+}
+
+#threedbutton {
+  background-color: lightblue;
+  border-radius: 4px;
+  padding: 3px 3px 3px 3px;
+}
+
+#animationbutton {
+  background-color: rgba(255, 165, 0, 1);
+  border-radius: 4px;
+  padding: 3px 3px 3px 3px;
+}
+
+#canvas {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#redshift-end-toggle {
+  margin-left: 3px;
+  margin-right: 5px;
+  width: 15px;
+}
+
+
+#c {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  z-index: -1;
+}
+*[data-diagram] {
+  display: inline-block;
+  width: 5em;
+  height: 3em;
+}
+.left {
+  float: left;
+  margin-right: .25em;
+}
+.right {
+  float: right;
+  margin-left: .25em;
+}
+
+
+#soupcanvas {
+  width: 800px;
+  height: 950px;
+  margin-top: 100px;
+}
+
+#soup-end-toggle {
+  position: relative;
+  top: 0px;
+  left: 6px;
+  margin-left: 3px;
+  margin-right: 5px;
+  width: 15px;
+}
+
+#soup-end-label {
+  position: relative;
+  left: 3px;
+  margin-left: 3px;
+  margin-right: 5px;
+}
+
+#souptimeline {
+  position: relative;
+  bottom: 4px;
 }

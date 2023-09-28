@@ -98,6 +98,7 @@
 	{% block threejs %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/92/three.js"></script>
 		<script src="{{ static_url("threejs/controls/OrbitControls.js") }}"></script>
+		<script src="{{ static_url("threejs/addons/loaders/GLTFLoader.js") }}"></script>
 		<script src="{{ static_url("threejs/Detector.js") }}"></script>
 		<script src="{{ static_url("threejs/libs/stats.min.js") }}"></script>
 
@@ -114,6 +115,7 @@
         <script src="{{static_url("js/parameterConfig.js")}}"></script>
 
         <script src="{{static_url("js/redshiftModal.js")}}"></script>
+
 
 		<script type="x-shader/x-vertex" id="vertexshader">
 			// switch on high precision floats
@@ -177,4 +179,5 @@
         </script>
 
 		<script src="{{ static_url("js/RSI.js") }}"></script>
+		<script src="{{static_url("js/soupplate.js")}}"></script>
 	{% end %}
