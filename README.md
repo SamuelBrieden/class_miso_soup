@@ -2,7 +2,7 @@ The universe in a soup plate
 ==============================================
 
 This repository contains the standard public CLASS code, but with the following addition:
-The code within external/RealSpaceInterface originally written by Georgios Samara and Max Beutelspacher
+The code within external/RealSpaceInterface originally written by Georgios Samaras and Max Beutelspacher
 has been extended by Sophia Schubert. The extension consists of an animation of a Miso soup, in which waves 
 originating from a Gaussian or scale-invariant random distribution of primordial Tofus 
 propagate depending on the parameters of the soup. The user can play with the amount of Miso paste,
